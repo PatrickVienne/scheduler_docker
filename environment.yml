@@ -1,30 +1,35 @@
-name: pisite
+name: scheduler
 channels: !!python/tuple
 - !!python/unicode
   'defaults'
 dependencies:
-- pip=9.0.1=py27_1
-- python=2.7.13=1
+- click=6.6=py27_0
+- flask=0.11.1=py27_0
+- gevent=1.1.2=py27_0
+- greenlet=0.4.10=py27_0
+- itsdangerous=0.24=py27_0
+- jinja2=2.8=py27_1
+- markupsafe=0.23=py27_2
+- mysql-python=1.2.5=py27_0
+- pip=9.0.1=py27_0
+- python=2.7.12=0
 - setuptools=27.2.0=py27_1
-- vs2008_runtime=9.00.30729.5054=0
+- vs2008_runtime=9.00.30729.1=2
+- werkzeug=0.11.11=py27_0
 - wheel=0.29.0=py27_0
 - pip:
-  - asn1crypto==0.22.0
-  - click==6.7
-  - cryptography==1.9
-  - enum34==1.1.6
-  - flask==0.12.2
-  - flask-sqlalchemy==2.2
-  - flask-wtf==0.12
-  - idna==2.5
-  - ipaddress==1.0.18
-  - itsdangerous==0.24
-  - jinja2==2.8
-  - markupsafe==1.0
-  - mysql-python==1.2.5
-  - pycparser==2.17
-  - pyopenssl==17.0.0
+  - blinker==1.4
+  - bson==0.4.4
+  - flask-cors==3.0.2
+  - flask-login==0.3.2
+  - flask-mail==0.9.1
+  - flask-principal==0.4.0
+  - flask-security==1.7.5
+  - flask-sqlalchemy==2.1
+  - flask-wtf==0.13.1
+  - passlib==1.7.0
+  - pytz==2016.10
   - six==1.10.0
-  - sqlalchemy==1.1.10
-  - werkzeug==0.12.2
+  - sqlalchemy==1.1.3
   - wtforms==2.1
+prefix: C:\Users\Polyun\Anaconda2\envs\scheduler

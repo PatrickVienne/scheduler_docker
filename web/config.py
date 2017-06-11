@@ -10,9 +10,14 @@ CONFIG = {
     "default": "config.ProductionConfig"
 }
 
-USERNAME = "scheduler"
-PASSWORD = "scheduler"
-URI = 'mysql://{user}:{pw}@127.0.0.1:3307/scheduler'.format(user=USERNAME,pw=PASSWORD)
+#USERNAME = "scheduler"
+#PASSWORD = "scheduler"
+
+USERNAME = "root"
+PASSWORD = "my-secret-pw"
+PORT = "3306"
+HOST = "192.168.0.88"
+URI = 'mysql://{user}:{pw}@{host}:{port}/scheduler'.format(user=USERNAME,pw=PASSWORD,host=HOST,port=PORT)
 
 class BaseConfig(object):
     """Base class for default set of configs."""

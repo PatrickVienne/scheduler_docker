@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <button class="btn btn-primary mb-1" (click)="create(); $event.stopPropagation()">Create New Role</button>
+  </div>
+  <div class="row mt-1 pt-1 pb-1 bg-info text-white">
+    <div class="col-1 text-center"><span class="badge badge-default badge-pill">ID</span></div>
+    <div class="col col-lg">Role</div>
+    <div class="col"></div>
+    <div class="col"></div>
+  </div>
+  <div *ngFor="let role of roles" class="row align-items-center mt-1 pt-1 pb-1 bg-faded">
+    <div class="col-1 text-center"><span class="badge badge-default badge-pill">{{role.id}}</span> </div>
+    <div class="col col-lg">{{role.name}}</div>
+    <div class="col col-auto"><button type="button" class="btn btn-secondary" (click)="edit(role); $event.stopPropagation();">Edit</button></div>
+    <div class="col col-auto"><button type="button" class="btn btn-danger" (click)="delete(role); $event.stopPropagation();">Delete</button></div>
+  </div>
+</div>

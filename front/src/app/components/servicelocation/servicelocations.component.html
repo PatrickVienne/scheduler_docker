@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <button class="btn btn-primary mb-1" (click)="create(); $event.stopPropagation()">Create New Service</button>
+  </div>
+  <div class="row mt-1 pt-1 pb-1 bg-info text-white">
+    <div class="col-1 text-center"><span class="badge badge-default badge-pill">ID</span></div>
+    <div class="col col-lg">Location</div>
+    <div class="col"></div>
+    <div class="col"></div>
+  </div>
+  <div *ngFor="let servicelocation of servicelocations" class="row align-items-center mt-1 pt-1 pb-1 bg-faded">
+    <div class="col-1 text-center"><span class="badge badge-default badge-pill">{{servicelocation.id}}</span> </div>
+    <div class="col col-lg">{{servicelocation.name}}</div>
+    <div class="col col-auto"><button type="button" class="btn btn-secondary" (click)="edit(servicelocation); $event.stopPropagation();">Edit</button></div>
+    <div class="col col-auto"><button type="button" class="btn btn-danger" (click)="delete(servicelocation); $event.stopPropagation();">Delete</button></div>
+  </div>
+</div>

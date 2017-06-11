@@ -1,0 +1,22 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded mb-2">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" (click)="isCollapsed = !isCollapsed"
+    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">{{title}}</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" [collapse]="isCollapsed">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="/employees" routerLinkActive="active" class="nav-link">Mitarbeiter</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/servicelocations" routerLinkActive="active" class="nav-link">Dienststellen</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/roles" routerLinkActive="active" class="nav-link">Rollen</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>

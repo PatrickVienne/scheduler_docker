@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <button class="btn btn-primary mb-1" (click)="create(); $event.stopPropagation()">Create New Employee</button>
+  </div>
+  <div class="row mt-1 pt-1 pb-1 bg-info text-white">
+    <div class="col-1 text-center"><span class="badge badge-default badge-pill">ID</span></div>
+    <div class="col col-lg">Name</div>
+    <div class="col"></div>
+    <div class="col"></div>
+  </div>
+  <div *ngFor="let employee of employees" class="row align-items-center mt-1 pt-1 pb-1 bg-faded">
+    <div class="col-1 text-center"><span class="badge badge-default badge-pill">{{employee.id}}</span></div>
+    <div class="col col-lg">{{employee.firstname}}</div>
+    <div class="col col-auto"><button class="btn btn-secondary" (click)="edit(employee); $event.stopPropagation();">Edit</button></div>
+    <div class="col col-auto"><button class="btn btn-danger" (click)="delete(employee); $event.stopPropagation();">Delete</button></div>
+  </div>
+</div>

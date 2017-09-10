@@ -92,9 +92,11 @@ RUN set -ex \
   && mv yarn.js /usr/local/bin/yarn \
   && chmod +x /usr/local/bin/yarn
 
-RUN npm install -g angular-cli@1.0.0-beta.28.3 && npm cache clean
+COPY . /srv/frontend
+WORKDIR /srv/frontend
+RUN npm install -g @angular/cli && npm cache clean
 RUN npm install
 RUN ng build
-EXPOSE 4200
-CMD ng serve --host 0.0.0.0.0 --port 4200
+EXPOSE 4200 3000 3001 8080
+CMD ["npm", "start"]
 

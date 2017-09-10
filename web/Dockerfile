@@ -6,6 +6,6 @@ RUN apt-get install libmysqlclient-dev
 COPY * /app/
 WORKDIR /app
 RUN pip install -r requirements.txt
-EXPOSE 80
+EXPOSE 80 443
 ENTRYPOINT ["python"]
 CMD ["start.py"]

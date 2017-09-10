@@ -21,6 +21,7 @@ services:
      - ./front:/tmp/cache
     depends_on:
      - web
+     - db
   db:
     restart: always
     hostname: mysqlserver

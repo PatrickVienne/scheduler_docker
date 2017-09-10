@@ -140,7 +140,7 @@ def get_roles():
 def main():
     """Main entry point of the app."""
     try:
-        http_server = WSGIServer(('127.0.0.1', 8081),
+        http_server = WSGIServer(('0.0.0.0', 80),
                                  app,
                                  log=logging,
                                  error_log=logging)

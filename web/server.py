@@ -1,14 +1,16 @@
-import logging
 import json
+import logging
+
 from flask import request, make_response
 from flask_security import auth_token_required
 from gevent.wsgi import WSGIServer
 
-from models import Employee, db, Servicelocation, Role
 from factory import create_app, create_seed
+from models import Employee, db, Servicelocation, Role
 
 logger = logging.getLogger(__name__)
 app = create_app()
+
 
 # Flask(__name__)
 
@@ -22,6 +24,7 @@ def init():
 def hello_world():
     return json.dumps([{"id": 1, "name": "wtf"}])
 
+
 @app.route("/testauth")
 @auth_token_required
 def testauth():
@@ -33,7 +36,7 @@ def create_employee():
     # print request.
     employee_data = json.loads(request.data)
     emp = Employee()
-    for k,v in employee_data.iteritems():
+    for k, v in employee_data.iteritems():
         if k == 'id': continue
         emp.__setattr__(k, v)
     db.session.add(emp)
@@ -46,7 +49,7 @@ def edit_employee():
     employee_data = json.loads(request.data)
     emp = Employee.query.get(employee_data['id'])
     if emp:
-        for k,v in employee_data.iteritems():
+        for k, v in employee_data.iteritems():
             if k == 'id': continue
             emp.__setattr__(k, v)
         db.session.commit()
@@ -77,7 +80,7 @@ def get_employee(id):
     if emp:
         return json.dumps(emp.to_dict())
     else:
-        return json.dumps({"id": 0, "firstname":""})
+        return json.dumps({"id": 0, "firstname": ""})
 
 
 @app.route('/servicelocation/create', methods=['PUT'])
@@ -85,7 +88,7 @@ def create_servicelocation():
     # print request.
     servicelocation_data = json.loads(request.data)
     sloc = Servicelocation()
-    for k,v in servicelocation_data.iteritems():
+    for k, v in servicelocation_data.iteritems():
         if k == 'id': continue
         sloc.__setattr__(k, v)
     db.session.add(sloc)
@@ -98,7 +101,7 @@ def edit_servicelocation():
     servicelocation_data = json.loads(request.data)
     sloc = Servicelocation.query.get(servicelocation_data['id'])
     if sloc:
-        for k,v in servicelocation_data.iteritems():
+        for k, v in servicelocation_data.iteritems():
             if k == 'id': continue
             sloc.__setattr__(k, v)
         db.session.commit()
@@ -129,7 +132,7 @@ def get_servicelocation(id):
     if sloc:
         return json.dumps(sloc.to_dict())
     else:
-        return json.dumps({"id": 0, "name":""})
+        return json.dumps({"id": 0, "name": ""})
 
 
 @app.route('/role/get_roles', methods=['GET'])
